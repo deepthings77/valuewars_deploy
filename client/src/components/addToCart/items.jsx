@@ -16,7 +16,7 @@ const Items = ({ auction_id, product_id, productImage, productName, productDescr
       "Authorization": "Bearer "+localStorage.getItem("token")
     });
     const response = await fetch(
-      "http://localhost:3001/api/removeItem?item=" + auction_id, {
+      "https://valuewars.netlify.app//api/removeItem?item=" + auction_id, {
         method:"GET",
         headers: myHeaders
       }  

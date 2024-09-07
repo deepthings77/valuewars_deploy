@@ -40,7 +40,7 @@ function App() {
           [idSeller.current, idUser.current] = [idUser.current, idSeller.current];
           [username.current, sellerName.current] = [sellerName.current, username.current]
         }
-      await fetch("http://localhost:3001/api/myChats" , {
+      await fetch("https://valuewars.netlify.app//api/myChats" , {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

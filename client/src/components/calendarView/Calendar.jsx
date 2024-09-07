@@ -32,7 +32,7 @@ export const Calendar = () => {
 
 // GET request for getting the auction start dates
 useEffect(() => {
-  fetch("http://localhost:3001/api/calendar?name=" + name )
+  fetch("https://valuewars.netlify.app//api/calendar?name=" + name )
     .then(response => response.json())
     .then(data => 
       {

@@ -26,7 +26,7 @@ const Items = ({
 
     // sending get request to the backend server for removing the item
     const response = await fetch(
-      "http://localhost:3001/api/removeItem?item=" + auction_id,
+      "https://valuewars.netlify.app//api/removeItem?item=" + auction_id,
       {
         method: "GET",
         headers: myHeaders,
