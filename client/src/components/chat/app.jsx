@@ -1,6 +1,6 @@
 import "./app.css";
 import io from "socket.io-client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Chat from "./chat";
 import { GetProfile } from "../myProfile/getProfile";
 import NavBar from "../navbar";
@@ -9,12 +9,13 @@ function App() {
         const params = new Proxy(new URLSearchParams(window.location.search),{
             get : (searchParams,prop) => searchParams.get(prop),
         })
-        let idSeller = params.id;
-        let sellerName=params.name;
-        let productName=params.product;
-        let val=params.bool;
-        let user=GetProfile();
-        let idUser = user._id;
+        
+        let idSeller = useRef(params.id);
+        let sellerName = useRef(params.name);
+        let productName = params.product;
+        let val = params.bool;
+        let user = GetProfile();
+        let idUser = useRef(user._id);
     // make sure id1 is the smaller value for
     // consistency of generation of roomId
     var room;
@@ -36,8 +37,8 @@ function App() {
         else{
           contactStatus=false;
           userStatus=true;
-          [idSeller,idUser]=[idUser,idSeller];
-          [username,sellerName]=[sellerName,username]
+          [idSeller.current, idUser.current] = [idUser.current, idSeller.current];
+          [username.current, sellerName.current] = [sellerName.current, username.current]
         }
       await fetch("http://localhost:3001/api/myChats" , {
         method: "PUT",

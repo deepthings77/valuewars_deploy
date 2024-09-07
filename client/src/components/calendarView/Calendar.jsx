@@ -40,7 +40,7 @@ useEffect(() => {
       }
     )
     .catch(error => console.error(error));
-}, []);
+}, [name]);
 
   const handleOnClickEvent = (eventDate) => {
     const date= new Date(eventDate).toISOString() ;

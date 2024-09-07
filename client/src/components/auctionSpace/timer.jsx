@@ -17,7 +17,7 @@ const AuctionTimer = ({ productId }) => {
          }
        )
        .catch(error => console.error(error));
-  },[])
+  },[productId])
 
   useEffect(() => {
     if (timeLeft > 0) {

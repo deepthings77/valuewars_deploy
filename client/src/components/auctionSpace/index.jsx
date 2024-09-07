@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useCallback} from "react";
 import { useLocation } from "react-router-dom";
 import NavBar from "../navbar/index";
 import styles from "./styles.module.css";
@@ -119,33 +119,56 @@ useEffect( () => {
             };
           });
         })
- },[])
+ },[auction,productId])
 
 // GET request for updating bidding data
-async function getSpace(){
+// async function getSpace(){
 
+//   const url = "http://localhost:3001/api/auctionSpace/onlyAuction?id=" + productId;
+//       const tokenStr = localStorage.getItem("token");
+//       const headers = { "Authorization": "Bearer "+tokenStr };
+//       axios
+//         .get(url, { headers })
+//         .then((res) => {
+//           if (res.status === 404 || !res) {
+//             window.location = "/signup";
+//           }
+//           setBids(res.data.responseData.bidsList);
+//           setAuction((previousState) => {
+//                     return {
+//                       ...auction,
+//                       prodCurrentPrice: res.data.responseData.currPrice,
+//                       auctionLive: res.data.responseData.auctionLive,
+//                       soldTo: res.data.responseData.soldTo,
+//                       auctionEnded: res.data.responseData.auctionEnded,
+//                       auctionStatus: res.data.responseData.auctionStatus,
+//                     };
+//                   });
+//         })
+// }
+const getSpace = useCallback(async () => {
   const url = "http://localhost:3001/api/auctionSpace/onlyAuction?id=" + productId;
-      const tokenStr = localStorage.getItem("token");
-      const headers = { "Authorization": "Bearer "+tokenStr };
-      axios
-        .get(url, { headers })
-        .then((res) => {
-          if (res.status === 404 || !res) {
-            window.location = "/signup";
-          }
-          setBids(res.data.responseData.bidsList);
-          setAuction((previousState) => {
-                    return {
-                      ...auction,
-                      prodCurrentPrice: res.data.responseData.currPrice,
-                      auctionLive: res.data.responseData.auctionLive,
-                      soldTo: res.data.responseData.soldTo,
-                      auctionEnded: res.data.responseData.auctionEnded,
-                      auctionStatus: res.data.responseData.auctionStatus,
-                    };
-                  });
-        })
-}
+  const tokenStr = localStorage.getItem("token");
+  const headers = { "Authorization": "Bearer " + tokenStr };
+  axios
+    .get(url, { headers })
+    .then((res) => {
+      if (res.status === 404 || !res) {
+        window.location = "/signup";
+      }
+      setBids(res.data.responseData.bidsList);
+      setAuction((previousState) => {
+        return {
+          ...auction,
+          prodCurrentPrice: res.data.responseData.currPrice,
+          auctionLive: res.data.responseData.auctionLive,
+          soldTo: res.data.responseData.soldTo,
+          auctionEnded: res.data.responseData.auctionEnded,
+          auctionStatus: res.data.responseData.auctionStatus,
+        };
+      });
+    });
+}, [auction, productId]);
 
 // to auto refresh page
 useEffect(() => {
@@ -162,7 +185,7 @@ useEffect(() => {
 
 
   return () => clearInterval(interval);
-}, [auction.auctionEnded]);
+}, [auction.auctionEnded,getSpace]);
 
 
 const [viewAll,setViewAll]=useState(false)

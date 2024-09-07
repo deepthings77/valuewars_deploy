@@ -14,7 +14,7 @@ export default function ViewAll() {
         setProducts(data);
       };
       fetchdata();
-    }, []);
+    }, [url]);
     url=url.charAt(0).toUpperCase()+url.slice(1);
     if(Object.keys(products).length > 0){
       return (
