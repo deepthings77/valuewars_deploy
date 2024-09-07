@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 const Card = ({ Product }) => {
   var shipmentFrom = Product.shipment;
+  var partsOfShipment;
   if(shipmentFrom){
-    var partsOfShipment=shipmentFrom.split(',')}
+     partsOfShipment=shipmentFrom.split(',')}
   else{
-    var partsOfShipment=" ";
+     partsOfShipment=" ";
   }
   
   var title = Product.productName;
