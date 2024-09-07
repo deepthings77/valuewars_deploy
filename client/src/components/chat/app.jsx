@@ -1,6 +1,6 @@
 import "./app.css";
 import io from "socket.io-client";
-import { useState,useEffect } from "react";
+import { useEffect } from "react";
 import Chat from "./chat";
 import { GetProfile } from "../myProfile/getProfile";
 import NavBar from "../navbar";
@@ -29,7 +29,7 @@ function App() {
   useEffect(()=>{
     const addContact = async (e) => {
       var userStatus,contactStatus;
-      if(val=="t"){
+      if(val==="t"){
         contactStatus=true;
         userStatus=false;
         }
