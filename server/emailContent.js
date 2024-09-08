@@ -3,13 +3,13 @@ function reminderToSubscribersMail(productName, product) {
   return `<h4> Dear Subscriber, <h4> 
   </br> 
   <p>The auction of ${productName} is going to start in 24 hours<p>
-  <h5>If you wish to tune in, kindly click here: <a href="https://valuewars.netlify.app//auctionSpace?id=${product}">Auction Details</a> </h5>`;
+  <h5>If you wish to tune in, kindly click here: <a href="http://localhost:3001/auctionSpace?id=${product}">Auction Details</a> </h5>`;
 }
 
 function emailSubscribersAuctionStartLate(productName, product, days, hh, mm, ss) {
   return `<h4> Dear Subscriber, <h4> </br> <p>The auction of ${productName
     } started ${days} days, ${hh} hours, ${mm} minutes, ${ss} seconds late due to a technical glitch.</p>
-<h5>If you wish to tune in, kindly click here: <a href="https://valuewars.netlify.app//auctionSpace?id=${product
+<h5>If you wish to tune in, kindly click here: <a href="http://localhost:3001/auctionSpace?id=${product
     }">Auction Details</a> </h5>`
 }
 
@@ -17,7 +17,7 @@ function emailSellerAuctionStartLate(sellername, productName, days, hh, mm, ss, 
   return `<h4>Dear ${sellername
     }, </h4> </br> <p> The auction of your product <b>${productName
     }</b> started ${days} days, ${hh} hours, ${mm} minutes, ${ss} seconds late due to a technical glitch.</p>
-  <h5>If you wish to tune in, kindly click here: <a href="https://valuewars.netlify.app//auctionSpace?id=${product
+  <h5>If you wish to tune in, kindly click here: <a href="http://localhost:3001/auctionSpace?id=${product
     }">Auction Details</a> </h5>`;
 }
 
@@ -25,21 +25,21 @@ function emailSubscribersAuctionStart(productName, product) {
   return  `<h4>Dear Subscriber, </h4>
 </br>
 <p> The auction of your subscribed product <b>${productName}</b> has just started now </p>
-<h5>If you wish to tune in, kindly click here: <a href="https://valuewars.netlify.app//auctionSpace?id=${product}">Auction Details</a> </h5>`;
+<h5>If you wish to tune in, kindly click here: <a href="http://localhost:3001/auctionSpace?id=${product}">Auction Details</a> </h5>`;
 }
 
 function emailSellerAuctionStart(productName, sellername, product) {
   return `<h4>Dear ${sellername}, </h4>
   </br>
   <p> The auction of your product <b>${productName}</b> has just started now </p>
-  <h5>If you wish to tune in, kindly click here: <a href="https://valuewars.netlify.app//auctionSpace?id=${product}">Auction Details</a> </h5>`;
+  <h5>If you wish to tune in, kindly click here: <a href="http://localhost:3001/auctionSpace?id=${product}">Auction Details</a> </h5>`;
 }
 
 function selleremailwithoutbuyer(productName, sellername, days, hh, mm, product) {
   return `<h4>Dear ${sellername},</h4> </br> <p>The product ${productName
     } has ended ${days} days, ${hh
     } hours, ${mm} minutes late due to a technical glitch. But we regret to inform you that not even a single bid got placed on your product, thereby, the product went as not sold.</p>
-<h5>To know more about your product auction status, visit <a href="https://valuewars.netlify.app//auctionSpace?id=${product
+<h5>To know more about your product auction status, visit <a href="http://localhost:3001/auctionSpace?id=${product
     }">Auction Details</a> </h5>`;
 }
 
@@ -48,7 +48,7 @@ function emailBuyerAuctionEndLate(productName, buyername, days, hh, mm, sellerna
     } has ended ${days} days, ${hh
     } hours, ${mm
     } minutes late due to a technical glitch. The product has been sold to you by the seller ${sellername
-    } at a price of &#8377; ${productCurrentPrice}</p><h5>To know more about your product auction status, visit <a href="https://valuewars.netlify.app//auctionSpace?id=${product
+    } at a price of &#8377; ${productCurrentPrice}</p><h5>To know more about your product auction status, visit <a href="http://localhost:3001/auctionSpace?id=${product
     }">Auction Details</a> </h5>`;
 }
 
@@ -57,26 +57,26 @@ function emailSellerAuctionEndLate(productName, sellername, days, hh, mm, buyern
   } has ended ${days} days, ${hh
   } hours, ${mm
   } minutes late due to a technical glitch. Your product has been sold to ${buyername
-  } at a price of &#8377; ${productCurrentPrice}</p><h5>To know more about your product auction status, visit <a href="https://valuewars.netlify.app//auctionSpace?id=${product
+  } at a price of &#8377; ${productCurrentPrice}</p><h5>To know more about your product auction status, visit <a href="http://localhost:3001/auctionSpace?id=${product
   }">Auction Details</a> </h5>`;
 }
 
 function emailSellerAuctionEndWithoutBuyer(sellername, productName, product) {
   return `<h4>Dear ${sellername},</h4> </br> <p>The product ${productName
   } has ended now. But we regret to inform you that not even a single bid got placed on your product, thereby, the product went as not sold.</p>
-<h5>To know more about your product auction status, visit <a href="https://valuewars.netlify.app//auctionSpace?id=${product
+<h5>To know more about your product auction status, visit <a href="http://localhost:3001/auctionSpace?id=${product
   }">Auction Details</a> </h5>`;
 }
 
 function emailBuyerAuctionEnd(buyername, productName, sellername, productCurrentPrice, product) {
   return `<h4>Dear ${buyername},</h4> </br> <p> The auction of ${productName} has ended now.The product has been sold to you by the seller ${sellername
-  } at a price of &#8377; ${productCurrentPrice}</p><h5>To know more about your product auction status, visit <a href="https://valuewars.netlify.app//auctionSpace?id=${product
+  } at a price of &#8377; ${productCurrentPrice}</p><h5>To know more about your product auction status, visit <a href="http://localhost:3001/auctionSpace?id=${product
   }">Auction Details</a> </h5>`;
 }
 
 function emailSellerAuctionEnd(sellername, productName, buyername, productCurrentPrice, product) {
   return `<h4>Dear ${sellername},</h4> </br> <p> The auction of ${productName} has ended now. Your product has been sold to ${buyername
-  } at a price of &#8377; ${productCurrentPrice}</p><h5>To know more about your product auction status, visit <a href="https://valuewars.netlify.app//auctionSpace?id=${product
+  } at a price of &#8377; ${productCurrentPrice}</p><h5>To know more about your product auction status, visit <a href="http://localhost:3001/auctionSpace?id=${product
   }">Auction Details</a> </h5>`;
 }
 

@@ -38,7 +38,7 @@ const Signup = () => {
       data.longitude = selectedCity.longitude;
     try {
       
-      const url = "https://valuewars.netlify.app//api/register";
+      const url = "http://localhost:3001/api/register";
       const { data: res } = await axios.post(url, data);
 
       //setting the JWT token on successful signUp and redirecting to home page

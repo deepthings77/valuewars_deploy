@@ -6,7 +6,7 @@ const AuctionTimer = ({ productId }) => {
   const [timeLeft, setTimeLeft] = useState(null);
 
   useEffect(() => {
-    fetch("https://valuewars.netlify.app//api/auctionSpace/timer?id=" + productId , {
+    fetch("http://localhost:3001/api/auctionSpace/timer?id=" + productId , {
            headers: { "Authorization": "Bearer "+localStorage.getItem("token")}
          })
        .then(response => response.json())

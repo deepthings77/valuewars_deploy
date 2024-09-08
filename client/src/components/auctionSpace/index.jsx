@@ -70,7 +70,7 @@ const addBid = async (e) => {
       
   
   //POST method to send bid price entered by the user
-    const res = await fetch("https://valuewars.netlify.app//api/auctionSpace" , {
+    const res = await fetch("http://localhost:3001/api/auctionSpace" , {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -92,7 +92,7 @@ const addBid = async (e) => {
 // GET request -- when page reloads
 useEffect( () => {
   
-      const url = "https://valuewars.netlify.app//api/auctionSpace?id=" + productId ;
+      const url = "http://localhost:3001/api/auctionSpace?id=" + productId ;
       const tokenStr = localStorage.getItem("token");
       const headers = { "Authorization": "Bearer "+tokenStr };
       axios
@@ -124,7 +124,7 @@ useEffect( () => {
 // GET request for updating bidding data
 // async function getSpace(){
 
-//   const url = "https://valuewars.netlify.app//api/auctionSpace/onlyAuction?id=" + productId;
+//   const url = "http://localhost:3001/api/auctionSpace/onlyAuction?id=" + productId;
 //       const tokenStr = localStorage.getItem("token");
 //       const headers = { "Authorization": "Bearer "+tokenStr };
 //       axios
@@ -147,7 +147,7 @@ useEffect( () => {
 //         })
 // }
 const getSpace = useCallback(async () => {
-  const url = "https://valuewars.netlify.app//api/auctionSpace/onlyAuction?id=" + productId;
+  const url = "http://localhost:3001/api/auctionSpace/onlyAuction?id=" + productId;
   const tokenStr = localStorage.getItem("token");
   const headers = { "Authorization": "Bearer " + tokenStr };
   axios

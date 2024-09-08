@@ -40,7 +40,7 @@ const EditProfile = () => {
     }
 
     e.preventDefault();
-    const url = "https://valuewars.netlify.app//api/myProfile";
+    const url = "http://localhost:3001/api/myProfile";
     const tokenStr = localStorage.getItem("token");
     const headers = { "Authorization": "Bearer "+tokenStr };
     const res = await axios.patch(url, newData, { headers });

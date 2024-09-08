@@ -17,7 +17,7 @@ const WatchList = () => {
     });
 
     // obtaining response from get request
-    const response = await fetch("https://valuewars.netlify.app//api/watchList", {
+    const response = await fetch("http://localhost:3001/api/watchList", {
       method: "GET",
       headers: myHeaders,
     });
