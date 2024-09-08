@@ -30,11 +30,11 @@ const calendar = require("./routes/calendarView/calendar");
 const calendarDetails = require("./routes/calendarView/calendarDetails");
 const contacts=require("./routes/contact/index");
 const auctionsScheduler = require("./routes/auctionSpace/auctionsScheduler");
-const path = require("path");
 
 
 
-const dirname = path.resolve();
+
+
 
 
 //database connection
@@ -75,12 +75,7 @@ app.use("/api/userProfile", checkAuthLogin, userProfile);
 
 
 
-app.use(express.static(path.join(dirname, "/client/build")));
 
-app.get("*", (req,res)=>{
-  res.sendFile(path.resolve(dirname,"client","build","index.html"));
-  
-})
 
 const port = process.env.PORT || 8000;
 app.listen(port, function () {
